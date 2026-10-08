@@ -511,7 +511,7 @@ ul, ol { list-style: none; }
 @media (max-width: 860px) { .pkg-side { position: static; } .collage { aspect-ratio: 1 / 1.3; } }
 @media (max-width: 700px) { .hero-art { margin-bottom: 70px; } #p4 .bst { top: auto !important; bottom: -8% !important; left: auto !important; right: 2% !important; --sz: 92px !important; } .vid-duo { gap: 10px; } }
 
-.trio .ph:nth-child(2) img { object-position: center; }
+.trio .ph:nth-child(2) img { object-position: 72% 60%; }
 .ph-in video { object-position: center; }
 .snd { position: absolute; z-index: 4; left: 50%; bottom: 12px; transform: translateX(-50%); border: 2px solid var(--cola); background: var(--lemon); color: var(--cola); border-radius: 99px; padding: 6px 11px; font: 500 10px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
 .stand-vids { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 24px); max-width: 640px; margin: clamp(88px, 10vw, 130px) auto 0; position: relative; z-index: 2; }
@@ -562,6 +562,15 @@ button.pill { font: inherit; cursor: pointer; }
 .place-vid .ph { --rd: 12px; width: 100%; }
 .place-tag { position: absolute; z-index: 6; left: 50%; top: -14px; translate: -50% 0; white-space: nowrap; background: var(--lemon); color: var(--cola); border: 2px solid var(--cola); border-radius: 99px; padding: 5px 11px; font: 500 9px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 @media (max-width: 860px) { .place-vid { right: -3%; width: 34%; bottom: 3%; } }
+
+.ev-head { max-width: 760px; }
+.ev-film { overflow: hidden; margin-top: clamp(36px, 5vw, 64px); padding-block: 14px 20px; }
+.ev-track { display: flex; gap: clamp(12px, 1.6vw, 22px); width: max-content; animation: mq 70s linear infinite; }
+.ev-film:hover .ev-track { animation-play-state: paused; }
+.ev-track .ph { width: clamp(190px, 24vw, 310px); --r: 3/4; --rd: 6px; flex: none; box-shadow: 0 0 0 5px var(--cotton), 5px 5px 0 5px var(--cola); }
+.ev-track .ph:nth-child(even) { margin-top: 30px; }
+.ev-cap { text-align: center; font: 500 10px/1.5 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); padding: 6px var(--gutter) 40px; }
+@media (prefers-reduced-motion: reduce) { .ev-track { animation: none; } .ev-film { overflow-x: auto; } }
 </style>
 
 <!-- Sprite de stickers -->
@@ -867,7 +876,7 @@ button.pill { font: inherit; cursor: pointer; }
     <div class="trio-wrap">
       <div class="trio" data-stagger>
         <div class="ph" data-label="FOTO · Muestras" data-src="img/ethique.jpg"><div class="ph-in"></div></div>
-        <div class="ph" data-label="FOTO · Goodie bag" data-src="img/kitbag.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Goodie bag" data-src="img/goodie.jpg"><div class="ph-in"></div></div>
         <div class="ph" data-label="FOTO · Experiencia" data-src="img/mats.jpg"><div class="ph-in"></div></div>
       </div>
       <span class="stk k-lemon" style="left:-3%;top:-9%;--sz:clamp(56px,8vw,96px)" data-speed="-30"><svg class="a-float" viewBox="0 0 100 100"><use href="#s-smile"/></svg></span>
@@ -1045,6 +1054,43 @@ button.pill { font: inherit; cursor: pointer; }
       <div class="cond"><b>Respeto a la experiencia</b><p>Cobertura fluida y orgánica, sin interferir en la práctica de pilates de las asistentes.</p></div>
     </div>
   </div>
+</section>
+
+<!-- ═══ 11b · CÓMO SE VERÁ EL EVENTO ═══════════════════════════ -->
+<section class="tab sec-light" id="evento">
+  <div class="wrap">
+    <div class="stack ev-head" style="position:relative">
+      <span class="eyebrow" data-r="up">8 de noviembre · Marea Club de Playa</span>
+      <h2 class="h2" data-r="up">Así se verá <em>el evento</em></h2>
+      <p class="lead" data-r="up">Una tarde en rosa, vino y cereza: mats alineadas frente al mar, flores frescas, goodie bags, rincones de marca y mujeres moviéndose juntas. Estas imágenes son referencias del ambiente que estamos construyendo, para que imagines dónde vivirá tu marca.</p>
+      <span class="stk k-hib" style="right:2%;top:-10%;--sz:clamp(50px,7vw,88px)" data-speed="-30"><svg class="a-spin" style="--dur:26s" viewBox="0 0 100 100"><use href="#s-daisy"/></svg></span>
+    </div>
+  </div>
+  <div class="ev-film" aria-label="Carrusel de referencias del ambiente del evento">
+    <div class="ev-track">
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev1.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev2.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev3.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev4.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev5.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev6.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev7.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev8.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev9.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev10.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev1.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev2.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev3.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev4.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev5.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev6.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev7.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev8.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev9.jpg"><div class="ph-in"></div></div>
+        <div class="ph" data-label="FOTO · Ambiente" data-src="img/ev10.jpg"><div class="ph-in"></div></div>
+    </div>
+  </div>
+  <p class="ev-cap">Referencias visuales del ambiente</p>
 </section>
 
 <!-- ═══ 12 · CIERRE ════════════════════════════════════════════ -->
