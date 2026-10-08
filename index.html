@@ -1,4 +1,5 @@
 <title>EM-PÁTICAS · Propuesta Comercial</title>
+<link rel="icon" type="image/png" href="img/gw-mark.png">
 <!--
   CÓMO PONER TUS FOTOS Y VIDEOS
   Cada espacio es un <div class="ph" data-label="..." data-src="">.
@@ -47,7 +48,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; overflow-anchor: none; }
 body {
   background: var(--lemon);
   color: var(--cola);
@@ -523,6 +524,16 @@ ul, ol { list-style: none; }
 .vid-one .ph, .vid-one .ph:nth-child(1) { --rd: 160px 160px 14px 14px; margin-top: 0; }
 .cred-card .ph-in img { object-position: center 12%; }
 .film .ph-in img { object-position: center; }
+
+.gw-by { display: inline-flex; align-items: center; gap: 9px; font: 500 10px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: inherit; text-decoration: none; }
+.gw-by:hover img { filter: brightness(1.15); }
+.gw-by img { width: 26px; height: 26px; object-fit: contain; flex: none; }
+.hero .gw-by { margin-top: 26px; color: var(--cherry); }
+.gw-lock { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 8px 0 30px; color: var(--lemon); text-decoration: none; }
+.gw-lock img { width: 74px; height: auto; }
+.gw-lock span { font: 500 10px/1.5 var(--mono); letter-spacing: .22em; text-transform: uppercase; opacity: .9; }
+.gw-lock em { font: italic 400 22px/1 'Instrument Serif', serif; letter-spacing: 0; text-transform: none; display: block; margin-top: 2px; }
+.gw-corner { position: absolute; z-index: 2; right: clamp(12px, 2vw, 26px); bottom: clamp(12px, 2vw, 24px); width: clamp(26px, 3vw, 34px); height: auto; opacity: .8; pointer-events: none; filter: drop-shadow(0 1px 1px rgba(0,0,0,.18)); }
 </style>
 
 <!-- Sprite de stickers -->
@@ -577,6 +588,7 @@ ul, ol { list-style: none; }
           <a class="pill solid" href="#paquetes">Ver paquetes</a>
           <a class="pill ghost" href="#creadoras">Conocer a las creadoras</a>
         </div>
+        <a class="gw-by" href="https://instagram.com/gw.studios_" target="_blank" rel="noopener" data-hero><img src="img/gw-mark.png" alt="GW Studios">Creado por Gabriella Wakil · @gw.studios_</a>
       </div>
 
       <div class="hero-art">
@@ -1025,6 +1037,7 @@ ul, ol { list-style: none; }
         <a class="pill solid" href="https://instagram.com/conmariabonita" target="_blank" rel="noopener">Escribir a María</a>
         <a class="pill ghost" href="https://instagram.com/fitwithemi_" target="_blank" rel="noopener">Escribir a Emely</a>
       </div>
+      <a class="gw-by" style="margin-top:34px;color:var(--lemon)" href="https://instagram.com/gw.studios_" target="_blank" rel="noopener"><img src="img/gw-mark.png" alt="GW Studios">Diseño y desarrollo web · Gabriella Wakil</a>
     </div>
   </div>
 </section>
@@ -1039,6 +1052,7 @@ ul, ol { list-style: none; }
     <svg viewBox="0 0 100 100"><use href="#s-spark"/></svg><span>Comunidad</span>
     <svg viewBox="0 0 100 100"><use href="#s-spark"/></svg>
   </div>
+  <a class="gw-lock" href="https://instagram.com/gw.studios_" target="_blank" rel="noopener"><img src="img/gw-logo.png" alt="GW Studios"><span>Creado por<em>Gabriella Wakil</em>@gw.studios_</span></a>
 </footer>
 
 <script>
@@ -1071,6 +1085,13 @@ ul, ol { list-style: none; }
     ph.classList.add('filled');
   });
 
+  /* 1b · Marca GW Studios en cada sección */
+  document.querySelectorAll('section.tab').forEach(function (sec) {
+    var m = document.createElement('img'); m.className = 'gw-corner'; m.src = 'img/gw-mark.png'; m.alt = '';
+    m.addEventListener('error', function () { m.remove(); });
+    sec.appendChild(m);
+  });
+
   /* 2 · Enlaces internos con scroll suave */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
@@ -1084,6 +1105,7 @@ ul, ol { list-style: none; }
 
   if (!window.gsap || !window.ScrollTrigger || reduce) return;
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true, autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load' });
   document.documentElement.classList.add('js');
   var fine = window.matchMedia('(pointer: fine)').matches;
 
