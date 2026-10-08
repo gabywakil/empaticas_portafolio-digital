@@ -534,6 +534,19 @@ ul, ol { list-style: none; }
 .gw-lock span { font: 500 10px/1.5 var(--mono); letter-spacing: .22em; text-transform: uppercase; opacity: .9; }
 .gw-lock em { font: italic 400 22px/1 'Instrument Serif', serif; letter-spacing: 0; text-transform: none; display: block; margin-top: 2px; }
 .gw-corner { position: absolute; z-index: 2; right: clamp(12px, 2vw, 26px); bottom: clamp(12px, 2vw, 24px); width: clamp(26px, 3vw, 34px); height: auto; opacity: .8; pointer-events: none; filter: drop-shadow(0 1px 1px rgba(0,0,0,.18)); }
+
+button.pill { font: inherit; cursor: pointer; }
+.choose { position: relative; }
+.choose-menu { position: absolute; z-index: 20; left: 0; top: calc(100% + 12px); min-width: 250px; background: var(--lemon); color: var(--cola); border: 2px solid var(--cola); border-radius: 16px; box-shadow: 6px 6px 0 var(--cola); padding: 8px; display: none; flex-direction: column; gap: 4px; }
+.choose.open .choose-menu { display: flex; animation: chIn .22s ease-out; }
+.choose-menu a { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: inherit; }
+.choose-menu a:hover, .choose-menu a:focus-visible { background: var(--cotton); }
+.choose-menu b { font: 500 11px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--cherry); }
+.choose-menu small { font: 400 15px/1.2 var(--mono); }
+.choose .pill span { display: inline-block; margin-left: 6px; transition: transform .25s; }
+.choose.open .pill span { transform: rotate(180deg); }
+@keyframes chIn { from { opacity: 0; translate: 0 -6px; } to { opacity: 1; translate: 0 0; } }
+@media (max-width: 520px) { .close-actions { flex-direction: column; align-items: flex-start; } .choose { width: 100%; } .choose .pill { width: 100%; justify-content: center; } .choose-menu { left: 0; right: 0; min-width: 0; } }
 </style>
 
 <!-- Sprite de stickers -->
@@ -1034,8 +1047,20 @@ ul, ol { list-style: none; }
         <li><span class="k">Horario</span><span class="v">4 PM a 7 PM · clase de pilates<br>Desde las 4 PM · actividades en el área exterior, hasta la hora que deseen</span></li>
       </ul>
       <div class="close-actions" data-r="up">
-        <a class="pill solid" href="https://instagram.com/conmariabonita" target="_blank" rel="noopener">Escribir a María</a>
-        <a class="pill ghost" href="https://instagram.com/fitwithemi_" target="_blank" rel="noopener">Escribir a Emely</a>
+        <div class="choose">
+          <button class="pill solid" type="button" aria-haspopup="true" aria-expanded="false">Escribir a María <span aria-hidden="true">▾</span></button>
+          <div class="choose-menu" role="menu">
+            <a role="menuitem" href="https://wa.me/584248723921" target="_blank" rel="noopener"><b>WhatsApp</b><small>+58 424 872 3921</small></a>
+            <a role="menuitem" href="https://instagram.com/conmariabonita" target="_blank" rel="noopener"><b>Instagram</b><small>@conmariabonita</small></a>
+          </div>
+        </div>
+        <div class="choose">
+          <button class="pill ghost" type="button" aria-haspopup="true" aria-expanded="false">Escribir a Emely <span aria-hidden="true">▾</span></button>
+          <div class="choose-menu" role="menu">
+            <a role="menuitem" href="https://wa.me/584248690086" target="_blank" rel="noopener"><b>WhatsApp</b><small>+58 424 869 0086</small></a>
+            <a role="menuitem" href="https://instagram.com/fitwithemi_" target="_blank" rel="noopener"><b>Instagram</b><small>@fitwithemi_</small></a>
+          </div>
+        </div>
       </div>
       <a class="gw-by" style="margin-top:34px;color:var(--lemon)" href="https://instagram.com/gw.studios_" target="_blank" rel="noopener"><img src="img/gw-mark.png" alt="GW Studios">Diseño y desarrollo web · Gabriella Wakil</a>
     </div>
@@ -1091,6 +1116,19 @@ ul, ol { list-style: none; }
     m.addEventListener('error', function () { m.remove(); });
     sec.appendChild(m);
   });
+
+  /* 1c · Menú de contacto (WhatsApp / Instagram) */
+  var chooses = document.querySelectorAll('.choose');
+  function closeAll(except) { chooses.forEach(function (c) { if (c !== except) { c.classList.remove('open'); c.querySelector('button').setAttribute('aria-expanded', 'false'); } }); }
+  chooses.forEach(function (c) {
+    var btn = c.querySelector('button');
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation(); closeAll(c);
+      var o = c.classList.toggle('open'); btn.setAttribute('aria-expanded', o ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', function () { closeAll(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 
   /* 2 · Enlaces internos con scroll suave */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
