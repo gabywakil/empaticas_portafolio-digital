@@ -557,6 +557,11 @@ button.pill { font: inherit; cursor: pointer; }
 .sec-dark .pay-note { color: var(--cotton); }
 .sec-light .pay-note, .sec-blush .pay-note { color: var(--cherry); }
 .pkg-grid + .pay-note, .p2-grid + .pay-note { }
+
+.place-vid { position: absolute; z-index: 5; right: -11%; bottom: 4%; width: 36%; rotate: 4deg; border: 5px solid var(--cotton); border-radius: 18px; background: var(--cotton); box-shadow: 8px 8px 0 var(--cherry); }
+.place-vid .ph { --rd: 12px; width: 100%; }
+.place-tag { position: absolute; z-index: 6; left: 50%; top: -14px; translate: -50% 0; white-space: nowrap; background: var(--lemon); color: var(--cola); border: 2px solid var(--cola); border-radius: 99px; padding: 5px 11px; font: 500 9px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+@media (max-width: 860px) { .place-vid { right: -3%; width: 34%; bottom: 3%; } }
 </style>
 
 <!-- Sprite de stickers -->
@@ -1049,9 +1054,13 @@ button.pill { font: inherit; cursor: pointer; }
       <div class="arch-wrap" data-r="up">
         <div class="arch"><div class="ph" data-label="FOTO · María y Emily, retrato final" data-src="img/toque.jpg" style="--r:3/4"><div class="ph-in"></div></div></div>
       </div>
+      <div class="place-vid" data-r="up" data-d=".2">
+        <div class="ph video" data-label="VIDEO · Marea Club de Playa" data-src="vid/lugar.mp4" style="--r:9/16"><div class="ph-in"></div></div>
+        <span class="place-tag">@marea_clubdeplaya</span>
+      </div>
       <span class="script" data-r="up" data-d=".3">Hablemos</span>
       <span class="stk k-pink" style="left:-12%;top:2%;--sz:clamp(56px,8vw,100px)" data-speed="-40"><svg class="a-float" viewBox="0 0 100 100"><use href="#s-smile"/></svg></span>
-      <span class="stk k-cherry" style="right:-8%;top:24%;--sz:clamp(50px,7vw,86px)" data-speed="-30"><svg class="a-float" style="--dl:-2s" viewBox="0 0 100 100"><use href="#s-cherry"/></svg></span>
+      <span class="stk k-cherry" style="right:-8%;top:8%;--sz:clamp(50px,7vw,86px)" data-speed="-30"><svg class="a-float" style="--dl:-2s" viewBox="0 0 100 100"><use href="#s-cherry"/></svg></span>
       <span class="stk k-lemon" style="right:-4%;bottom:6%;--sz:clamp(44px,6vw,72px)"><svg class="a-spin" style="--dur:28s" viewBox="0 0 100 100"><use href="#s-lemon"/></svg></span>
       <span class="stk k-hib plain" style="left:42%;top:-8%;--sz:clamp(24px,3.4vw,42px)"><svg class="a-twink" viewBox="0 0 100 100"><use href="#s-spark"/></svg></span>
     </div>
@@ -1065,6 +1074,7 @@ button.pill { font: inherit; cursor: pointer; }
         <li><span class="k">Lugar</span><span class="v">Marea Club de Playa</span></li>
         <li><span class="k">Día</span><span class="v">8 de noviembre</span></li>
         <li><span class="k">Horario</span><span class="v">4 PM a 7 PM · clase de pilates<br>Desde las 4 PM · actividades en el área exterior, hasta la hora que deseen</span></li>
+        <li><span class="k">Aforo</span><span class="v">100 mujeres en clase<br>Sin límite de aforo para las actividades</span></li>
       </ul>
       <div class="close-actions" data-r="up">
         <div class="choose">
